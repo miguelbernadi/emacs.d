@@ -2,11 +2,8 @@
 ;;; Commentary:
 ;;; Code:
 
-;;; Set up melpa-stable as package source
-(require 'package)
-(add-to-list 'package-archives
-	     '("melpa-stable" . "https://stable.melpa.org/packages/"))
-(package-initialize)
+;;; Install packages I want
+(load "~/.emacs.d/init-packages")
 
 ;;; Setup Org-mode
 (require 'org)
