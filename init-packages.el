@@ -16,6 +16,9 @@
 	;;; version control
 	magit
 
+	;;; automatic completions
+	auto-complete
+	go-autocomplete
 	))
 
 ;;; activate all the packages
