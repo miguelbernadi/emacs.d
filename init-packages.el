@@ -12,6 +12,7 @@
 	;;; golang
 	go-mode
         exec-path-from-shell
+	go-errcheck
 
 	;;; version control
 	magit
