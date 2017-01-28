@@ -13,6 +13,7 @@
 	go-mode
         exec-path-from-shell
 	go-errcheck
+	go-eldoc
 
 	;;; version control
 	magit
