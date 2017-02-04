@@ -35,6 +35,10 @@
  ;; If there is more than one, they won't work right.
  )
 
+;; Display line and column numbers in Mode line
+(setq line-number-mode t)
+(setq column-number-mode t)
+
 ;;; Get PATH environment
 ;;; (https://tleyden.github.io/blog/2014/05/22/configure-emacs-as-a-go-editor-from-scratch/)
 (defun set-exec-path-from-shell-PATH ()
