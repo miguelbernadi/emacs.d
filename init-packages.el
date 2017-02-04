@@ -6,7 +6,12 @@
 	     '("melpa-stable" . "https://stable.melpa.org/packages/"))
 ;;; list packages to be installed
 (setq package-list
-      '(;;; syntax highlighting
+      '(
+	;;; Navigation and docs
+	helm
+	helm-dash
+
+        ;;; syntax highlighting
 	flycheck
 
 	;;; golang

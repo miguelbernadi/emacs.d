@@ -5,6 +5,9 @@
 ;;; Install packages I want
 (load "~/.emacs.d/init-packages")
 
+;;; Load configurations
+(require 'helm-config)
+
 ;;; Setup Org-mode
 (require 'org)
 (define-key global-map "\C-cl" 'org-store-link)
