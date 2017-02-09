@@ -2,8 +2,45 @@
 ;;; Commentary:
 ;;; Code:
 
+;;; Set up melpa-stable as package source
+(require 'package)
+(add-to-list 'package-archives
+	     '("melpa-stable" . "https://stable.melpa.org/packages/"))
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
 ;;; Install packages I want
-(load "~/.emacs.d/init-packages")
+(eval-when-compile
+  (require 'use-package))
+
+(use-package helm
+	     :ensure t)
+(use-package helm-dash
+	     :ensure t)
+
+(use-package flycheck
+	     :ensure t)
+
+(use-package go-mode
+	     :ensure t)
+(use-package exec-path-from-shell
+	     :ensure t)
+(use-package go-errcheck
+	     :ensure t)
+(use-package go-eldoc
+	     :ensure t)
+
+(use-package magit
+	     :ensure t)
+
+(use-package auto-complete
+	    :ensure t)
+(use-package go-autocomplete
+	     :ensure t)
 
 ;;; Load configurations
 (require 'helm-config)
