@@ -19,8 +19,8 @@
 
 (use-package helm
 	     :ensure t)
-(use-package helm-dash
-	     :ensure t)
+;(use-package helm-dash
+;	     :ensure t)
 
 (use-package flycheck
 	     :ensure t)
