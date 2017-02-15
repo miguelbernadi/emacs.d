@@ -50,6 +50,10 @@
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
 (setq org-log-done t)
+(org-babel-do-load-languages
+      'org-babel-load-languages
+      '((emacs-lisp . nil)
+        (sh . t)))
 
 ;;; Enable flycheck for syntax checking
 (add-hook 'after-init-hook #'global-flycheck-mode)
