@@ -33,6 +33,8 @@
 	     :ensure t)
 (use-package go-eldoc
 	     :ensure t)
+(use-package go-dlv
+             :ensure t)
 
 (use-package magit
 	     :ensure t)
