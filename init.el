@@ -47,6 +47,9 @@
 ;;; Load configurations
 (require 'helm-config)
 
+;; show a clock for full screen
+(display-time-mode 1)
+
 ;;; Setup Org-mode
 (require 'org)
 (define-key global-map "\C-cl" 'org-store-link)
