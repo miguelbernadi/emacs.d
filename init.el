@@ -23,7 +23,10 @@
 ;	     :ensure t)
 
 (use-package flycheck
-	     :ensure t)
+  :ensure t
+  :config
+  ;;; Enable flycheck for syntax checking
+  (add-hook 'after-init-hook #'global-flycheck-mode))
 
 (use-package go-mode
 	     :ensure t)
@@ -62,9 +65,6 @@
       'org-babel-load-languages
       '((emacs-lisp . nil)
         (sh . t)))
-
-;;; Enable flycheck for syntax checking
-(add-hook 'after-init-hook #'global-flycheck-mode)
 
 ;;; Remove tool-bar
 (tool-bar-mode -1)
