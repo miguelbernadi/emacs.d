@@ -82,6 +82,7 @@
 	    :ensure t)
 (use-package go-autocomplete
 	     :ensure t)
+(load-theme 'misterioso)
 
 ;;; Load configurations
 (require 'helm-config)
