@@ -82,6 +82,9 @@
 	    :ensure t)
 (use-package go-autocomplete
 	     :ensure t)
+
+(use-package perspective
+  :ensure t)
 (load-theme 'misterioso)
 
 ;;; Load configurations
