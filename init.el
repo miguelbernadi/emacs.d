@@ -22,6 +22,32 @@
 ;(use-package helm-dash
 ;	     :ensure t)
 
+;;; Setup Org-mode
+(use-package org
+  :config
+  (define-key global-map "\C-cl" 'org-store-link)
+  (define-key global-map "\C-ca" 'org-agenda)
+  (setq org-log-done t)
+  ;; Languages available in SRC blocks
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((emacs-lisp . nil)
+     (sh . t)))
+  ;; Set agenda files
+  (setq org-agenda-files (list "~/org/agenda/test.org"))
+  (custom-set-variables
+   ;; custom-set-variables was added by Custom.
+   ;; If you edit it by hand, you could mess it up, so be careful.
+   ;; Your init file should contain only one such instance.
+   ;; If there is more than one, they won't work right.
+   '(org-agenda-files (quote ("~/org/agenda/newgtd.org"))))
+  (custom-set-faces
+   ;; custom-set-faces was added by Custom.
+   ;; If you edit it by hand, you could mess it up, so be careful.
+   ;; Your init file should contain only one such instance.
+   ;; If there is more than one, they won't work right.
+   ))
+
 (use-package flycheck
   :ensure t
   :config
@@ -93,33 +119,9 @@
 ;; show a clock for full screen
 (display-time-mode 1)
 
-;;; Setup Org-mode
-(require 'org)
-(define-key global-map "\C-cl" 'org-store-link)
-(define-key global-map "\C-ca" 'org-agenda)
-(setq org-log-done t)
-(org-babel-do-load-languages
-      'org-babel-load-languages
-      '((emacs-lisp . nil)
-        (sh . t)))
 
 ;;; Remove tool-bar
 (tool-bar-mode -1)
-
-;;; Set agenda files
-(setq org-agenda-files (list "~/org/agenda/test.org"))
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(org-agenda-files (quote ("~/org/agenda/newgtd.org"))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
 
 ;; Display line and column numbers in Mode line
 (setq line-number-mode t)
