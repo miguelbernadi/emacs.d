@@ -19,6 +19,7 @@
 
 (use-package helm
 	     :ensure t)
+(use-package helm-config)
 ;(use-package helm-dash
 ;	     :ensure t)
 
@@ -107,14 +108,31 @@
 (use-package auto-complete
 	    :ensure t)
 (use-package go-autocomplete
-	     :ensure t)
+            :ensure t)
+(use-package dockerfile-mode
+            :ensure t)
 
 (use-package perspective
   :ensure t)
+
+(use-package exec-path-from-shell
+  :ensure t)
+
+(use-package smtpmail
+  :config
+  (setq message-send-mail-function 'smtpmail-send-it
+	smtpmail-auth-credentials
+	'(("smtp.gmail.com" 587 "miguel.bernabeu@gmail.com" nil))
+	smtpmail-stream-type 'starttls
+	smtpmail-default-smtp-server "smtp.gmail.com"
+	smtpmail-smtp-server "smtp.gmail.com"
+	smtpmail-smtp-service 587)
+  ;; don't keep message buffers around
+  (setq message-kill-buffer-on-exit t))
+
 (load-theme 'misterioso)
 
 ;;; Load configurations
-(require 'helm-config)
 
 ;; show a clock for full screen
 (display-time-mode 1)
