@@ -140,6 +140,9 @@
 (use-package exec-path-from-shell
   :ensure t)
 
+(use-package markdown-mode
+  :ensure t)
+
 (use-package mu4e
   :config
   ;; Set mu4e as default mail client for emacs
