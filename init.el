@@ -107,7 +107,26 @@
   :ensure t
   :config
   :bind ("C-x g" . magit-status))
-  
+
+(use-package magit-gh-pulls
+  :ensure t
+  :config
+  (defun endless/add-PR-fetch ()
+    "If refs/pull is not defined on a GH repo, define it."
+    (let ((fetch-address
+	   "+refs/pull/*/head:refs/pull/origin/*")
+	  (magit-remotes
+	   (magit-get-all "remote" "origin" "fetch")))
+      (unless (or (not magit-remotes)
+		  (member fetch-address magit-remotes))
+	(when (string-match
+	       "github" (magit-get "remote" "origin" "url"))
+	  (magit-git-string
+	   "config" "--add" "remote.origin.fetch"
+	   fetch-address)))))
+  (add-hook 'magit-mode-hook #'endless/add-PR-fetch)
+  (add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls))
+
 (use-package auto-complete
 	    :ensure t)
 (use-package go-autocomplete
