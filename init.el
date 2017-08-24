@@ -149,8 +149,12 @@
   (setq mail-user-agent 'mu4e-user-agent)
   ;; Mu4e program settings
   (setq mu4e-mu-binary "/usr/local/bin/mu"
-	mu4e-get-mail-command "offlineimap"
+	mu4e-get-mail-command "mbsync devex"
 	mu4e-update-interval 300) ;; seconds between auto-update
+
+  ;;rename files when moving
+  ;;NEEDED FOR MBSYNC
+  (setq mu4e-change-filenames-when-moving t)
 
   ;; Folder settings and behaviour
   (setq	mu4e-maildir "~/Mail"
@@ -199,7 +203,20 @@
   ;; every new email composition gets its own frame! (window)
   (setq mu4e-compose-in-new-frame t
 	;; Avoid self replies in Reply to all
-	mu4e-compose-dont-reply-to-self t)
+	mu4e-compose-dont-reply-to-self t
+	;; show images
+	mu4e-show-images t)
+
+  ;; Use imageMagick if available
+  (when (fboundp 'imagemagick-register-types)
+    (imagemagick-register-types))
+
+  ;; spell check
+  (add-hook 'mu4e-compose-mode-hook
+	    (defun my-do-compose-stuff ()
+	      "My settings for message composition."
+	      (set-fill-column 72)
+	      (flyspell-mode)))
 
   ;; User personal information
   (setq mu4e-user-mail-address-list '("miguel.bernabeu@devex.com")
